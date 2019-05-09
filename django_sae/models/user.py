@@ -21,6 +21,11 @@ class UserModel(BaseModel):
         return self.get_one(user_id)
 
     @parse_resp_json
+    def get_permissions(self, user_id):
+        url = build_url(self.base_url, [user_id, 'permissions'])
+        return requests.get(url, headers=self.token_header)
+
+    @parse_resp_json
     def get_one(self, user_id):
         url = build_url(self.base_url, user_id)
         return requests.get(url, headers=self.token_header)

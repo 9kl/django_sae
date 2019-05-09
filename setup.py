@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 
+import django_saengine
+
 setup(
     name='django-saengine',
-    version='0.0.4',
+    version=django_saengine.__version__,
     author='bigtiger',
     author_email='chinafengheping@gmail.com',
     url='http://www.hshl.ltd',

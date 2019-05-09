@@ -63,3 +63,13 @@ class ModelBackend(object):
             return UserWrapper(user)
         except RestfulApiError:
             return None
+
+    def get_permissions(self, user_id):
+        """ 根据用户id获取用户权限
+        """
+        try:
+            _service = UserModel()
+            permissions = _service.get_permissions(user_id)
+            return permissions
+        except RestfulApiError as ex:
+            return None
